@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import br.com.tokiomarine.seguradora.avaliacao.entidade.Estudante;
 
-@Repository
 public interface EstudanteRepository extends JpaRepository<Estudante, Long>  {
 
 	List<Estudante> findByNome(String nome);
+	
 
 }
