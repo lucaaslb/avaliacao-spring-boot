@@ -4,17 +4,20 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.stereotype.Service;
+
 import br.com.tokiomarine.seguradora.avaliacao.entidade.Estudante;
 import br.com.tokiomarine.seguradora.avaliacao.repository.EstudanteRepository;
 
 // TODO Efetue a implementação dos métodos da classe service
+@Service
 public class EstudanteServiceImpl implements EstudandeService {
 
-	EstudanteRepository repository;
+	EstudanteRepository estudanteRepository;
 
 	@Override
 	public void cadastrarEstudante(@Valid Estudante estudante) {
-
+		estudanteRepository.save(estudante);
 	}
 
 	@Override

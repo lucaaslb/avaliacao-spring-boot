@@ -2,6 +2,7 @@ package br.com.tokiomarine.seguradora.avaliacao.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.tokiomarine.seguradora.avaliacao.entidade.Estudante;
 import br.com.tokiomarine.seguradora.avaliacao.service.EstudandeService;
 
+@Deprecated
 @Controller
 @RequestMapping("/estudantes/")
 public class EstudanteController {
 
 	// TODO efetue a correção dos problemas que existem na classe Estudante Controller
-	EstudandeService service;
+	 @Autowired
+	private EstudandeService service;
 
 	@GetMapping("criar")
 	public String iniciarCastrado(Estudante estudante) {
@@ -27,7 +30,7 @@ public class EstudanteController {
 
 	@GetMapping("listar")
 	public String listarEstudantes(Model model) {
-		model.addAttribute("estudtes", service.buscarEstudantes());
+		model.addAttribute("estudantes", service.buscarEstudantes());
 		return "index";
 	}
 
